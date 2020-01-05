@@ -9,6 +9,7 @@ Onboarding crash course by [Walter Reiner](mailto:walter.reiner@wreiner.at).
 1. Create a repository
 1. Working with files
 1. Working with remote repositories
+1. Working with branches
 
 ### Git vs Github
 
