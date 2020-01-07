@@ -142,3 +142,94 @@ $ git merge feat-newp
 
 - Git is really good at sovling merge conflicts
 - Some conflicts cannot be resolved automatically
+
+#### Create a merge conflict
+
+- Create a new file in master
+
+```
+$ echo "echo Hello" > my_code.sh
+$ git add my_code.sh
+$ git commit -am 'Add new file'
+```
+
+- Create a new feature branch
+
+```
+$ git checkout -b feat-worldhello
+$ echo "echo \"Hello World\"" > my_code.sh
+$ git commit -m 'Add the world' -a
+```
+
+- Someone makes a change to the master branch
+    - Either commiting in master branch directly or merging another branch into master
+
+```
+$ git checkout master
+$ echo 'echo "Hello World!"' > my_code.sh
+$ git commit -am 'Add the WORLD!'
+```
+
+- Merging in the feature branch will result in a merge conflict
+
+```
+$ git merge feat-worldhello
+Auto-merging my_code.sh
+CONFLICT (content): Merge conflict in my_code.sh
+Automatic merge failed; fix conflicts and then commit the result.
+```
+
+#### Resolve a merge conflict
+
+- Merge conflicts are visible in the following way
+
+```
+<<<<<<< HEAD
+echo "Hello World!"
+=======
+echo "Hello World"
+>>>>>>> feat-worldhello
+```
+
+- Change the file to the desired content
+    - Remove <<< === >>> lines
+
+```
+# here the content of HEAD wins
+echo "Hello World!"
+```
+
+- Commit the repaired file
+
+```
+$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 5 commits.
+  (use "git push" to publish your local commits)
+
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+	both modified:   my_code.sh
+$ git add my_code.sh
+$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 5 commits.
+  (use "git push" to publish your local commits)
+
+All conflicts fixed but you are still merging.
+  (use "git commit" to conclude merge)
+
+$ git commit -m "Fix merge conflict" -a
+[master 810736e] Fix merge conflict
+$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 7 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+```
+
