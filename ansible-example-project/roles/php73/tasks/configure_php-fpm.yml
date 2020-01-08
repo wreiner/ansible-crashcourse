@@ -1,0 +1,43 @@
+---
+
+- name: "Change fpm user to nginx"
+  lineinfile:
+    path: "/etc/php-fpm.d/www.conf"
+    regexp: '^;?user ='
+    line: "user = nginx" 
+  notify: "Restart php-fpm"
+
+- name: "Change fpm group to nginx"
+  lineinfile:
+    path: "/etc/php-fpm.d/www.conf"
+    regexp: '^;?group ='
+    line: "group = nginx" 
+  notify: "Restart php-fpm"
+
+- name: "Change listen parameter to socket"
+  lineinfile:
+    path: "/etc/php-fpm.d/www.conf"
+    regexp: '^;?listen ='
+    line: "listen = /run/php-fpm/www.sock"
+  notify: "Restart php-fpm"
+
+- name: "Change socket owner to nginx"
+  lineinfile:
+    path: "/etc/php-fpm.d/www.conf"
+    regexp: '^;?listen.owner ='
+    line: "listen.owner = nginx"
+  notify: "Restart php-fpm"
+
+- name: "Change socket group to nginx"
+  lineinfile:
+    path: "/etc/php-fpm.d/www.conf"
+    regexp: '^;?listen.group ='
+    line: "listen.group = nginx"
+  notify: "Restart php-fpm"
+
+- name: "Fix ownership of directory"
+  file:
+    path: "/var/lib/php"
+    owner: "root"
+    group: "nginx"
+    mode: "0775"

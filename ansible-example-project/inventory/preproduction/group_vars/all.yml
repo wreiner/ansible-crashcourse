@@ -1,0 +1,9 @@
+---
+common__authorized_keys: |
+  ssh-ed25519 
+  ssh-rsa 
+  ssh-dss 
+  ssh-rsa 
+  ssh-dss 
+
+wordpress__dbhost: "10.0.1.25"

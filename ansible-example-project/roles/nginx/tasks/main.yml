@@ -1,0 +1,47 @@
+---
+- name: "Install epel-release"
+  package:
+    name: "epel-release"
+    state: "present"
+
+- name: "Install nginx"
+  package:
+    name: "nginx"
+    state: "present"
+  notify: "Restart nginx daemon"
+
+# - name: "Deploy nginx.conf"
+#   template:
+#     src: "nginx.conf.phase1.j2"
+#     dest: "/etc/nginx/nginx.conf"
+#     owner: root
+#     group: root
+#     mode: 0644
+#     backup: "yes"
+#   notify: "Restart nginx daemon"
+
+- name: "Deploy nginx.conf"
+  template:
+    src: "nginx.conf.phase2.j2"
+    dest: "/etc/nginx/nginx.conf"
+    owner: root
+    group: root
+    mode: 0644
+    backup: "yes"
+  notify: "Restart nginx daemon"
+
+- name: "Create document root"
+  file:
+    path: "/var/www"
+    state: "directory"
+    owner: root
+    group: root
+    mode: 0755
+
+- name: "Deploy index.html"
+  template:
+    src: "index.html.j2"
+    dest: "/var/www/index.html"
+    owner: root
+    group: root
+    mode: 0644

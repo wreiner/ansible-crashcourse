@@ -1,0 +1,13 @@
+---
+#
+# ansible-playbook -i inventory/preproduction/hosts.yml --extra-vars="@credentials.yml" webservers.yml --ask-vault-pass
+#
+- hosts: webservers
+  become: yes
+
+  roles:
+    - common
+    - nginx
+    - php73
+    - wordpress
+

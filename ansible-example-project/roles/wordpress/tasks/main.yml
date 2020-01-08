@@ -1,0 +1,31 @@
+---
+- name: "Create document root"
+  file:
+    path: "/var/www"
+    state: "directory"
+    owner: "nginx"
+    group: "nginx"
+    mode: 0755
+
+- name: "Download and deploy wordpress"
+  unarchive:
+    src: "https://wordpress.org/wordpress-5.3.2.tar.gz"
+    dest: "/var/www"
+    remote_src: "yes"
+
+# https://superuser.com/a/1317715
+- name: "Fix file ownership and permissions"
+  file:
+    dest: "/var/www/wordpress"
+    owner: "nginx"
+    group: "nginx"
+    mode: "u=rwX,g=rwX,o=rX"
+    recurse: "yes"
+
+- name: "Deploy config file"
+  template:
+    src: "wp-config.php.j2"
+    dest: "/var/www/wordpress/wp-config.php"
+    owner: "nginx"
+    group: "nginx"
+    mode: "0600"

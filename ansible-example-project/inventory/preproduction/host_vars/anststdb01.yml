@@ -1,0 +1,19 @@
+---
+# -- bertvv.mariadb
+# https://galaxy.ansible.com/bertvv/mariadb
+# ansible-galaxy install bertvv.mariadb
+mariadb_bind_address: "{{ wordpress__dbhost }}"
+mariadb_configure_swappiness: false
+mariadb_mirror: "yum.mariadb.org"
+mariadb_port: 3306
+mariadb_root_password: "mariadb"
+mariadb_service: "mariadb"
+
+mariadb_databases:
+  - name: "{{ wordpress__dbname }}"
+
+mariadb_users:
+  - name: "{{ wordpress__dbuser }}"
+    password: "{{ wordpress__dbpassword }}"
+    priv: "{{ wordpress__dbname }}.*:ALL"
+    host: '%.%'

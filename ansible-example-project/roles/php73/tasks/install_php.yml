@@ -1,0 +1,26 @@
+---
+- name: "Install remi repo"
+  yum:
+    name: https://rpms.remirepo.net/enterprise/remi-release-7.rpm
+    state: present
+
+- name: "Enable remi repo"
+  command: "yum-config-manager --enable remi-php73"
+
+- name: "Install php 7.3 and modules"
+  yum:
+    name: "{{ packages }}"
+    enablerepo: "remi,remi-php73"
+  vars:
+    packages:
+      - php-cli
+      - php-fpm
+      - php-mysql
+      - php-json
+      - php-opcache
+      - php-mbstring
+      - php-xml
+      - php-gd
+      - php-curl
+      - php
+      - php-common

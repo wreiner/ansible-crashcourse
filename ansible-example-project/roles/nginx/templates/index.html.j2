@@ -1,0 +1,4 @@
+<h3>This host has the IP addresses:</h3>
+{% for ip in ansible_all_ipv4_addresses %}
+<p>{{ ip }}</p>
+{% endfor %}
