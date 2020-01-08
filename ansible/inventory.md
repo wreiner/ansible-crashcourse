@@ -74,3 +74,22 @@ sshd_x11forwarding: "no"
 
 wordpress__install_directory: "/var/www"
 ```
+
+#### Create example project inventory
+
+```
+$ mkdir -p inventory/preproduction
+$ cat inventory/preproduction/hosts.yml
+---
+webservers:
+  hosts:
+    anststweb01:
+      ansible_host: 10.1.192.xx
+      ansible_user: centos
+
+databases:
+  hosts:
+    anststdb01:
+      ansible_host: 10.1.192.yy
+      ansible_user: centos
+```
