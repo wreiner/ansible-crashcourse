@@ -2,16 +2,20 @@
 
 ### What is Ansible?
 
-- Serverless
+- IT automation tool
+- Agentless
+- Uses ssh for transport
 
 ### Ansible nomenclature
 
 1. YAML
-1. Inventory
+1. [Inventory](inventory.md)
 1. Modules
-1. Roles
+1. [Roles](roles.md)
 1. Tasks
-1. Playbook
+1. [Playbook](play.md)
+1. [Vault](vault.md)
+1. [Ansible Galaxy](ansible-galaxy.md)
 
 ### Video Course
 
@@ -43,3 +47,6 @@
     - Enable and start service
     - Deploy index.html
         - Contains ipv4 address of the node
+1. Create a [vault](vault.md) for sensible data
+1. Create roles for php 7.3 and wordpress
+1. Install mariadb with ansible-galaxy
