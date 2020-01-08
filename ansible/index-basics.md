@@ -1,4 +1,6 @@
-## Ansible
+## Ansible Crash Course
+
+Onboarding crash course for Ansible.
 
 ### What is Ansible?
 

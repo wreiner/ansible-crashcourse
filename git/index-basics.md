@@ -1,6 +1,6 @@
-# Git and Ansible Crash Course
+# Git Crash Course
 
-Onboarding crash course by [Walter Reiner](mailto:walter.reiner@wreiner.at).
+Onboarding crash course for Git.
 
 ## Git
 
