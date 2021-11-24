@@ -1,49 +1,31 @@
-### Ansible Galaxy
+### Ansible Vault
 
-- Galaxy is a hub for finding and sharing Ansible content
-    - https://galaxy.ansible.com/
-- Galaxy provides pre-packaged units of work known to Ansible as Roles
+- Ansible Vault is a feature of ansible that allows you to keep sensitive data such as passwords or keys in encrypted files, rather than as plaintext in playbooks or roles
+    - https://docs.ansible.com/ansible/latest/user_guide/vault.html
 
-#### Use mariadb module from Galaxy
+#### Whole file as a vault
 
-- Install the package
-    - Files will be downloaded to *~/.ansible*
+- Create the vault
 
 ```
-$ ansible-galaxy install bertvv.mariadb
+$ ansible-vault create credentials.yml
 ```
 
-- Configure the module through inventory
+- Edit the vault
 
 ```
-# inventory/preproduction/host_vars/anststdb01.yml
-# -- bertvv.mariadb
-# https://galaxy.ansible.com/bertvv/mariadb
-# ansible-galaxy install bertvv.mariadb
-mariadb_bind_address: "{{ wordpress__dbhost }}"
-mariadb_configure_swappiness: false
-mariadb_mirror: "yum.mariadb.org"
-mariadb_port: 3306
-mariadb_root_password: "mariadb"
-mariadb_service: "mariadb"
-
-mariadb_databases:
-  - name: "{{ wordpress__dbname }}"
-
-mariadb_users:
-  - name: "{{ wordpress__dbuser }}"
-    password: "{{ wordpress__dbpassword }}"
-    priv: "{{ wordpress__dbname }}.*:ALL"
-    host: '%.%'
+$ ansible-vault edit credentials.yml
 ```
 
-- Use the package in your play
+- View the vault
 
 ```
-- hosts: databases
-  become: yes
-
-  roles:
-    - common
-    - bertvv.mariadb
+$ ansible-vault view credentials.yml
 ```
+
+#### Use the vault in an ansible run
+
+```
+$ ansible-playbook -i inventory/preproduction/hosts.yml --extra-vars="@credentials.yml" databases.yml --ask-vault-pass
+```
+
