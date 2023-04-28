@@ -50,6 +50,16 @@ monitoring:
     mon01:
 ```
 
+Group specific variables
+
+```
+---
+# inventory/production/group_vars/webservers.yml
+
+# define how to contact hostmaster
+apache_hostmaster_address: hostmaster@somewhere.com
+```
+
 #### Catchall group variables
 
 ```
