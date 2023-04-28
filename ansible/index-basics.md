@@ -22,6 +22,9 @@ Onboarding crash course for Ansible.
 1. [Tasks](tasks.md)
 1. [Modules](modules.md)
 1. [Roles](roles.md)
+   1. [Common role](role-common.md)
+   1. [nginx role](role-nginx.md)
+1. [Variables, conditionals, loops](variables_conditionals_loops.md)
 1. [Vault](vault.md)
 1. [Ansible Galaxy](ansible-galaxy.md)
 

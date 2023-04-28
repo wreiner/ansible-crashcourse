@@ -7,9 +7,9 @@ Onboarding crash course for Git.
 1. Git vs Github
 1. Configure Git
 1. Create a repository
-1. Working with files
-1. Working with remote repositories
-1. Working with branches
+1. [Working with files](working-with-files.md)
+1. [Working with remote repositories](working-with-remote-repositories.md)
+1. [Working with branches](working-with-branches.md)
 
 ### Git vs Github
 
