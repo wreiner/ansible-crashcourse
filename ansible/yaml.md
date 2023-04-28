@@ -10,6 +10,8 @@
 
     ```
     ---
+    # lines starting with # are comments
+
     app_name: myapp
     port: 8080
     debug: true
