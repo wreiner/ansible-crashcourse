@@ -50,7 +50,7 @@ monitoring:
     mon01:
 ```
 
-Group specific variables
+#### Group specific variables
 
 ```
 ---
