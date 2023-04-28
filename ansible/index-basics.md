@@ -4,28 +4,32 @@ Onboarding crash course for Ansible.
 
 ### What is Ansible?
 
-- IT automation tool
-- Agentless
-- Uses ssh for transport
+- open-source configuration management and automation tool
+- automate IT tasks such as provisioning, deployment, and orchestration of software and infrastructure
+- agentless architecture
+  - it doesn't require any software to be installed on the target hosts
+  - easy to deploy and manage
+  - connects to remote servers via SSH
+- can be used for a wide range of tasks
+  - from simple server configuration and application deployment to complex infrastructure management and continuous delivery
+- uses a simple, human-readable language called YAML to describe automation jobs
 
 ### Ansible nomenclature
 
-1. YAML
+1. [YAML](yaml.md)
 1. [Inventory](inventory.md)
-1. Modules
-1. [Roles](roles.md)
-1. Tasks
 1. [Playbook](play.md)
+1. [Tasks](tasks.md)
+1. [Modules](modules.md)
+1. [Roles](roles.md)
 1. [Vault](vault.md)
 1. [Ansible Galaxy](ansible-galaxy.md)
 
-### Video Course
-
-- [The Cloud Coach - Ansible Crash Course](https://www.thecloud.coach/ansible-crash-course)
+- see [Ansible docs](https://docs.ansible.com/ansible/latest/getting_started/basic_concepts.html)
 
 ### What we are about to setup
 
-- Two VMs in an virtualization environment
+- Two VMs in a virtualization environment
     - One database host with mariadb
     - One nginx host with wordpress
     - All hosts should have vim and tmux installed
