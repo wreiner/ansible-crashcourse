@@ -2,7 +2,7 @@
 
 - are the primary way to describe automation workflows in Ansible
 - defines a set of tasks/roles to be executed on one or more (remote) hosts
-- 
+- load requirements automatically in the right version
 
 #### Example play - Webservers inline tasks
 

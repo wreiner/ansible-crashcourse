@@ -13,7 +13,9 @@ Onboarding crash course for Ansible.
 - can be used for a wide range of tasks
   - from simple server configuration and application deployment to complex infrastructure management and continuous delivery
 - uses a simple, human-readable language called YAML to describe automation jobs
-
+- Ansible is idempotent, running a playbook multiple times will have same effect
+- Audit trail as Ansible logs tasks performed and if the succeeded
+- Integrateable into GitOps, manage infrastructure and application as code (IaC)
 ### Ansible nomenclature
 
 1. [YAML](yaml.md)
