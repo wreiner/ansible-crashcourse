@@ -29,6 +29,8 @@ Onboarding crash course for Ansible.
 1. [Variables, conditionals, loops](variables_conditionals_loops.md)
 1. [Vault](vault.md)
 1. [Ansible Galaxy](ansible-galaxy.md)
+1. [Execution Environments](execution-environments.md)
+1. [Ansible Tower](ansible-tower.md)
 
 - see [Ansible docs](https://docs.ansible.com/ansible/latest/getting_started/basic_concepts.html)
 
