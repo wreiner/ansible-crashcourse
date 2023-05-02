@@ -1,0 +1,6 @@
+---
+- hosts: databases
+  become: true
+
+  roles:
+    - networkconfig

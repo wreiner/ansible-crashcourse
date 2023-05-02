@@ -1,0 +1,5 @@
+---
+- src: ssh://git@github.com:wreiner/ansible-role-networkconfig.git
+  scm: git
+  version: main
+  name: networkconfig
