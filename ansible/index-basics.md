@@ -16,6 +16,7 @@ Onboarding crash course for Ansible.
 - Ansible is idempotent, running a playbook multiple times will have same effect
 - Audit trail as Ansible logs tasks performed and if the succeeded
 - Integrateable into GitOps, manage infrastructure and application as code (IaC)
+
 ### Ansible nomenclature
 
 1. [YAML](yaml.md)
